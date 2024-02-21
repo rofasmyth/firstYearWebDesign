@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+  <div id= "HeaderColour" head>
+    <img src= "logo.png" class="center">
+	</div>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?      
+    family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+
+    <!-- links CSS + JavaScript page -->
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+
+    
+		
+
+
+<style>
+/*style for the submit form*/
+  fieldset {
+  background-color:#eeeeee
+}
+
+legend {
+  background-color: darkgray;
+  color: white;
+  padding: 5px 10px;
+}
+
+input {
+  margin: 5px;
+}
+
+</style>
+
+
+  
+<script>
+
+
+//download function to save file locally
+
+function saveFile()
+{	
+	//enable user to enter filename (both docs will have the same name)
+	var fileName = document.getElementById("name").value;
+	
+	//load image as canvas object
+	var canvas = document.getElementById("canvas");
+	var sF = document.createElement("a");
+	sF.href = canvas.toDataURL("image/png");
+	sF.download = fileName;
+	sF.click();
+	
+	//givng each variable IDs 
+	var desc = document.getElementById("desc");
+  var name = document.getElementById("name");
+  var email = document.getElementById("email");
+  var date = document.getElementById("date");
+  var rate = document.getElementById("rate");
+  var sevices = document.getElementById("services");
+  var radio;
+  var satisfied = document.getElementsByClassName("r1");
+  for(var i =0;i<satisfied.length;i++){
+    if (satisfied[i].checked)
+      radio = satisfied[i].value;
+      
+  }
+
+  //load text input as BLOB object
+	var data = '\r File Description:\t '+ desc.value +  '\r Name:\t'+ 
+  name.value + '\r Email:\t' + email.value + '\r Date\t   '+ date.value + '\r Rate:\t' + 
+  rate.value + '\r Services:\t' + services.value + '\r Satisfied?:\t '+ radio ;
+	const BLOBfile = new Blob([data], {type:'text/plain'});
+	var sTF= document.createElement("a");
+	sTF.download = fileName +'.txt';
+	sTF.href=window.URL.createObjectURL(BLOBfile);
+	sTF.click();
+  
+  window.alert("File uploaded. Thank you for the contribution.");
+
+}
+
+
+</script>
+
+  
+    </div>
+  </head>
+  <body>
+   
+
+    <!-- put nav links here -->
+    <div class="topnav">
+
+			<!-- Centered link -->
+			<div class="topnav-centered">
+				<a href="index.html">Home</a>
+			</div>
+
+			<!-- Left-aligned links (default) -->
+			<a href="Bloody.html">Bloody Sunday March Poster Gallery</a>
+			<a href="General.html">General Activism Poster Gallery</a>
+
+			<!-- Right-aligned links -->
+			<div class="topnav-right">
+				<a href="Background.html">Background Information</a>
+				<a href="Submission.html" class="active">Submission Page</a>
+			</div>
+
+		</div>
+
+    <!-- Accessibility Bar-->
+    <div class="myAccess">
+    <button class = "button" id="b1" onclick=LargeFont()>Large Font </button>
+
+    <button class = "button" onclick=NormalFont()>Normal       Font </button>
+
+    <button class = "button" id="b2" onclick=alterStyle()>Dark Mode </button>
+  
+  </div>
+
+		</div>
+
+    <section>
+      <h4 id="mid">Form For Sharing Own Content with Us </h4>
+     <pre id="mid" style="font-family: constantia ; font-size: 20px ">
+       If you have any content related to the history of Derry please fill out the form
+       below to upload your file/image. One of our historians will verify the content 
+       and we will contact you if we are planning on displaying it in the museum</pre>
+
+     
+      <fieldset >
+        <legend>Submit Form</legend><!-- creates a form layout fo ruser to input  details -->
+            <form id="myForm">
+              <label style="color:black;">Name:</label>
+              <input type="text" placeholder="Enter Name" id="name" name="Name"><br>  	            <br>
+              
+              
+              <label style="color:black;">Email:</label>
+              <input type="text" value="@" id="email" name="Email"><br><br>
+
+              <!-- Allows user to select the date off a calendar  -->
+              <label style="color:black;">Date of upload:</label>
+              <input type="date"  id="date" name="Date"><br><br>
+
+              
+                <h3 style="color:black;">Rating of the Museum?</h3>
+                <input  type="range" min="0" max="10" value="5" id="rate"     
+                oninput="this.nextElementSibling.value = this.value+'/10'">
+                <output style="color:black;">5/10</output>
+
+                <!-- creates a drop box for user to pick a value/answer -->
+                <h3 style="color:black;">Satisfied with the museums service?</h3>
+              <label style="color:black;">Satisfied</label>
+              <input class="r1" type="radio" name="service" value="Satisfied">
+              <label style="color:black;">Mediocre</label>
+              <input class="r1" type="radio" name="service" value ="Mediocre">
+              <label style="color:black;">Disappointed</label>
+              <input class="r1" type="radio" name="service" value="Disappointed">
+              <br>
+              <br>
+
+              <h3 style="color:black;">Uploading the file</h3>
+              <!-- creates text box for user to type in -->
+              <label style="color:black;">Description of file/image:</label>
+              <textarea rows="3" cols="30" id="desc" name="Textarea"></textarea><br>                        <br>
+              
+              <label for="type" style="color:black;">Are you Alright with the museum using your content?                         </label>
+
+              <!-- creates dropbox to allow user pick answer-->
+              <select name="type" id="services">
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                  <option value="Unsure">Unsure</option>
+              </select>
+
+              <!-- code for uploading the file/image -->
+              <canvas id="canvas" style="display:none;"></canvas>
+              <p style="color:black;"> Upload File <input type="file" id="uploader"> <p>
+              <button onclick="saveFile()">Submit File</button><br><br>
+               
+            </form>
+
+       </fieldset> 
+       <p id="entered"></p>
+
+    </section>
+    <pre>
+
+      
+    </pre>  
+  <div class="footer">
+    <h3>Contact Information</h3>
+    <li><b>Email:</b> info@museumoffreederry.org  <b>Phone number:</b>  (028) 71 
+    360880(UK)</li>
+    <p></p>
+    
+  </div>
+
+
+
+<script>//select image and display on canvas 
+	  const canvas = document.querySelector('#canvas');
+	  const ctx = canvas.getContext('2d');
+	  const uploader = document.querySelector('#uploader');
+	  uploader.addEventListener('change',(e)=>{
+			  const myFile= uploader.files[0];
+			  const img = new Image();
+			  img.src=URL.createObjectURL(myFile);
+			  img.onload = function(){
+				ctx.drawImage(img,0,0);
+			}
+	});</script>
+    
+</body>
+</html>

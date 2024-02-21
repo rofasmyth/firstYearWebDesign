@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+
+  <div id= "HeaderColour" head>
+    <img src= "logo.png" class="center">
+	</div>
+  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?      
+    family=Yanone+Kaffeesatz:wght@500&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+  
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="script.js"></script>
+    
+	<style>
+/* ***********RonanCSS***************** */
+/* Quoteshow container */
+.factsBox {
+		width: 700px;
+		height: 150px;
+		border: 5px dotted DarkRed;
+		padding: 15px;
+		margin: auto;
+		margin-top: 25px;
+    margin-bottom: 25px;
+	}
+
+/* **************************************************************** */
+	/* Quoteshow container */
+	.quoteshow-container {
+		position: relative;
+		background: White;
+	}
+
+	/* Quotes */
+	.myQuotes {
+		display: none;
+		padding: 20px;
+		height: 50px;
+		text-align: center;
+    color: black;
+	}
+
+	/* Next & previous buttons */
+	.prev, .next {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		width: auto;
+		margin-top: -30px;
+		padding: 16px;
+		color: #888;
+		font-weight: bold;
+		font-size: 20px;
+		border-radius: 0 3px 3px 0;
+		user-select: none;
+	}
+
+	/* Position the "next button" to the right */
+	.next {
+		position: absolute;
+		right: 0;
+		border-radius: 3px 0 0 3px;
+	}
+
+		/* On hover, add a black background color with a little bit see-through */
+		.prev:hover, .next:hover {
+			background-color: rgba(0,0,0,0.8);
+			color: white;
+		}
+
+	/* The dot/bullet/indicator container */
+	.dot-container {
+		text-align: center;
+		padding: 20px;
+		background: #ddd;
+	}
+
+	/* The dots/bullets/indicators */
+	.dot {
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		margin: 0 2px;
+		background-color: #bbb;
+		border-radius: 50%;
+		display: inline-block;
+		transition: background-color 0.6s ease;
+
+	}
+
+		/* Add a background color to the active dot/circle */
+		.active, .dot:hover {
+			background-color: #717171;
+		}
+	
+	
+	/* ***************************************************************** */
+  /* ***************************************************************** */
+	
+	#slideshowContainer{
+		position:relative;
+		width:45%;
+		height: auto;
+		margin:auto;
+	}
+
+	img{
+		display:block;
+		margin-left:110px;
+    margin-bottom: 100px;
+		/* margin-right:5px; */
+		width:555px;
+		height:700px;
+		object-fit: fill;
+		padding: 10px;
+	}
+
+	.box {
+		width: auto;
+		height: auto;
+		border: 5px groove #f1f1f1f1;
+		padding: 5px;
+		background-color: auto;
+    margin-top: 75px; 
+    margin-bottom: 100px; 
+    margin-left: 150px;
+    text-align: center;
+	}
+
+	.box2 {
+		float: right;
+		width: 55%;
+		height: 500px;
+		/*border: 5px solid DarkRed;*/
+		padding: 5px;
+		background-color: auto;
+    margin-bottom: 100px;
+	}
+	
+	/* Create three equal columns that float next to each other */
+	#column {
+		float: left;	
+	}
+
+	/* Clear floats after the columns */
+	#row:after {
+		content: "";
+		display: table;
+		clear: both;
+		width: auto;
+	}
+	
+	.content{
+		margin: 20px;
+		padding: 20px;
+	}
+  </style>
+
+  <script>
+    
+  var slideIndex=0;
+	function showSlides()
+	{
+		var i
+		var slides = document.getElementsByClassName("images");
+		for (i=0; i<slides.length; i++)
+		{
+			slides[i].style.display = "none";
+		}
+		slideIndex++;
+		if(slideIndex>slides.length){slideIndex=1;}
+		slides[slideIndex-1].style.display = "block";
+		setTimeout(showSlides, 10000); //change every 10 seconds
+	}
+	
+	
+	var quoteIndex = 1;
+	showQuotes(quoteIndex);
+
+	function plusQuotes(n) {
+		showQuotes(quoteIndex += n);
+	}
+
+	function currentQuote(n) {
+		showQuotes(quoteIndex = n);
+	}
+
+	function showQuotes(n) {
+		var i;
+		var quotes = document.getElementsByClassName("myQuotes");
+		var dots = document.getElementsByClassName("dot");
+		if (n > quotes.length) { quoteIndex = 1 }
+			if (n < 1) { quoteIndex = quotes.length }
+			for (i = 0; i < quotes.length; i++) {
+				quotes[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+		quotes[quoteIndex - 1].style.display = "block";
+		dots[quoteIndex - 1].className += " active";
+  }
+
+    
+  </script>
+
+    </div>
+  </head>
+  <body>
+   
+
+    <!-- put nav links here -->
+    <div class="topnav">
+
+			<!-- Centered link -->
+			<div class="topnav-centered">
+				<a href="index.html" class="active">Home</a>
+			</div>
+
+			<!-- Left-aligned links (default) -->
+			<a href="Bloody.html">Bloody Sunday March Poster Gallery</a>
+			<a href="General.html">General Activism Poster Gallery</a>
+
+			<!-- Right-aligned links -->
+			<div class="topnav-right">
+				<a href="Background.html " >Background Information</a>
+				<a href="submission.html" >Submission Page</a>
+			</div>
+
+		</div>
+
+    <!-- Accessibility Bar-->
+    <div class="myAccess">
+    <button class = "button" id="b1" onclick=LargeFont()>Large Font </button>
+
+    <button class = "button" onclick=NormalFont()>Normal       Font </button>
+
+    <button class = "button" id="b2" onclick=alterStyle()>Dark Mode </button>
+  
+  </div>
+
+	</div>
+
+  <div class="factsBox">
+			<!-- Slideshow container -->
+			<div class="quoteshow-container">
+
+				<!-- Full-width slides/quotes -->
+				<div class="myQuotes">
+					<q>I grew up in Derry, of course, and it was... Derry was the worst example of Northern Ireland's discrimination.</q>
+					<p class="author" >- John Hume, Politician</p>
+				</div>
+
+				<div class="myQuotes">
+					<q>The silence in England about conditions in ‘Ulster’ almost amounts to criminal negligence.</q>
+					<p class="author">- Martin Ennals, British human rights campaigner</p>
+				</div>
+
+				<div class="myQuotes">
+					<q >I grew up in a situation of such degradation and unemployment that the life our people lived was no life at all… I want something better for my children than this.</q>
+					<p class="author" >- Sean Cronin, IRA volunteer</p>
+				</div>
+
+				<!-- Next/prev buttons -->
+				<a class="prev" onclick="plusQuotes(-1)">&#10094;</a>
+				<a class="next" onclick="plusQuotes(1)">&#10095;</a>
+			</div>
+
+			<!-- Dots/bullets/indicators -->
+			<div class="dot-container">
+				<span class="dot" onclick="currentQuote(0)"></span>
+				<span class="dot" onclick="currentQuote(1)"></span>
+				<span class="dot" onclick="currentQuote(2)"></span>
+			</div>
+		</div>
+
+		<div class="indexContent" id="navPageText">
+			<div class="box" id="column">
+
+				<h2>Cead míle fáilte romhat chuig Iarsmalann Shaor-Dhoire.</h2>
+				<h2>A hundred thousand welcomes to the museum of Free-Derry.</h2>
+				<h1>What is this page?</h1>
+				<pre style="font-family: constantia ; font-size: 20px ">The museum has many items which are not on 
+display due to space constraints and the 
+difficulty of preserving exhibits.    
+As such, through this webpage, the public 
+is able to view the items which we 
+have but cannot display on the museum floor.
+Furthermore, should any member of the public
+have similar historical materials 
+at home, they can upload a digital copy to the
+museum through this machine. This can be 
+done by using a pen drive and the 
+submission page.
+          
+Thank you for your visit and your support.
+				</pre>
+        
+			</div>
+
+			<div id="row">
+				<div class="box2" id="slideshowContainer">
+
+					<div class="images"><img src="IndexImages/abortion.jpg" alt="Abortion"></div>
+					<div class="images"><img src="IndexImages/connollyRainbow.jpeg" alt="Rainbow"></div>
+					<div class="images"><img src="IndexImages/decommission.jpg" alt="Decommission"></div>
+					<div class="images"><img src="IndexImages/gay.jpg" alt="Gay Rights"></div>
+					<div class="images"><img src="IndexImages/justPeace.jpg" alt="Just Peace"></div>
+					<div class="images"><img src="IndexImages/oneStruggle.jpg" alt="One Struggle"></div>
+					<div class="images"><img src="IndexImages/protectGuilty.jpg" alt="Protect Guilty"></div>
+					<div class="images"><img src="IndexImages/reagan.jpg" alt="Reagan"></div>
+					<div class="images"><img src="IndexImages/sA.jpg" alt="South Africa"></div>
+					<div class="images"><img src="IndexImages/soldiers.jpg" alt="Soldiers"></div>
+				</div>
+			</div>
+		</div>
+
+
+		<script>
+			showSlides();
+			showQuotes();
+		</script>
+
+		<div class="footer">
+			<h3>Contact Information</h3>
+			<li><b>Email:</b> info@museumoffreederry.org  <b>Phone number:</b>  (028) 71360880(UK)</li>
+			<p></p>
+		</div>
+
+  <section>
+  </section>
+
+    
+</body>
+</html>
